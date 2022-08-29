@@ -1,0 +1,49 @@
+---
+- ___resource___: lambda-add_permission-0001
+  ___sdk_func_name___: add_permission
+  ___add_fields___:
+  - FunctionName
+  - StatementId
+  ___sdk_func_param___:
+    FunctionName: "<start>GENERAL...lambda_function_name<end>"
+    StatementId: "<start>GENERAL...lambda_function_name<end>-permission-<func_start>$$unique_string<func_end>"
+    Action: lambda:InvokeFunction
+    Principal: apigateway.amazonaws.com
+    SourceArn: arn:aws:execute-api:us-east-1:<start>GENERAL...account_number<end>:<start>apigateway-restapi-0001...id<end>/*/*/<start>apigateway-resource-0001...pathPart<end>
+  ___destroy_resource___:
+  - ___sdk_func_name___: remove_permission
+    ___sdk_func_param___:
+      FunctionName: "<start> lambda-add_permission-0001...FunctionName <end>"
+      StatementId: "<start> lambda-add_permission-0001...StatementId <end>"
+- ___resource___: lambda-add_permission-0002
+  ___sdk_func_name___: add_permission
+  ___add_fields___:
+  - FunctionName
+  - StatementId
+  ___sdk_func_param___:
+    FunctionName: "<start>GENERAL...lambda_function_name<end>"
+    StatementId: "<start>GENERAL...lambda_function_name<end>-permission-<func_start>$$unique_string<func_end>"
+    Action: lambda:InvokeFunction
+    Principal: apigateway.amazonaws.com
+    SourceArn: arn:aws:execute-api:us-east-1:<start>GENERAL...account_number<end>:<start>apigateway-restapi-0001...id<end>/*/*/<start>apigateway-resource-0002...pathPart<end>
+  ___destroy_resource___:
+  - ___sdk_func_name___: remove_permission
+    ___sdk_func_param___:
+      FunctionName: "<start> lambda-add_permission-0002...FunctionName <end>"
+      StatementId: "<start> lambda-add_permission-0002...StatementId <end>"
+- ___resource___: lambda-add_permission-0003
+  ___sdk_func_name___: add_permission
+  ___add_fields___:
+  - FunctionName
+  - StatementId
+  ___sdk_func_param___:
+    FunctionName: "<start>GENERAL...lambda_function_name<end>"
+    StatementId: "<start>GENERAL...lambda_function_name<end>-permission-<func_start>$$unique_string<func_end>"
+    Action: lambda:InvokeFunction
+    Principal: apigateway.amazonaws.com
+    SourceArn: arn:aws:execute-api:us-east-1:<start>GENERAL...account_number<end>:<start>apigateway-restapi-0001...id<end>/*/*/<start>apigateway-resource-0003...pathPart<end>
+  ___destroy_resource___:
+  - ___sdk_func_name___: remove_permission
+    ___sdk_func_param___:
+      FunctionName: "<start> lambda-add_permission-0003...FunctionName <end>"
+      StatementId: "<start> lambda-add_permission-0003...StatementId <end>"

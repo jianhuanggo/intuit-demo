@@ -1,0 +1,170 @@
+---
+- ___resource___: apigateway-restapi-0001
+  ___sdk_func_name___: create_rest_api
+  ___save_fields___:
+  - id
+  - name
+  ___sdk_func_param___:
+    name: demo-api
+    description: testing
+    version: v1
+    cloneFrom: ''
+    binaryMediaTypes: []
+    minimumCompressionSize: 123
+    apiKeySource: HEADER
+    endpointConfiguration:
+      types:
+      - REGIONAL
+    policy: ''
+    tags: {}
+    disableExecuteApiEndpoint: false
+  ___post_process___:
+  - ___sdk_func_name___: get_resources
+    ___save_fields___:
+    - id: parent_id
+    ___sdk_func_param___:
+      restApiId: "<start> apigateway-restapi-0001...id <end>"
+      limit: 300
+      embed: []
+  ___destroy_resource___:
+  - ___sdk_func_name___: delete_rest_api
+    ___sdk_func_param___:
+      restApiId: "<start> apigateway-restapi-0001...id <end>"
+- ___resource___: apigateway-resource-0001
+  ___sdk_func_name___: create_resource
+  ___save_fields___:
+  - id
+  - pathPart
+  ___sdk_func_param___:
+    restApiId: "<start> apigateway-restapi-0001...id <end>"
+    parentId: "<start> apigateway-restapi-0001...parent_id <end>"
+    pathPart: disk
+- ___resource___: apigateway-resource-0002
+  ___sdk_func_name___: create_resource
+  ___save_fields___:
+  - id
+  - pathPart
+  ___sdk_func_param___:
+    restApiId: "<start> apigateway-restapi-0001...id <end>"
+    parentId: "<start> apigateway-restapi-0001...parent_id <end>"
+    pathPart: memory
+- ___resource___: apigateway-resource-0003
+  ___sdk_func_name___: create_resource
+  ___save_fields___:
+  - id
+  - pathPart
+  ___sdk_func_param___:
+    restApiId: "<start> apigateway-restapi-0001...id <end>"
+    parentId: "<start> apigateway-restapi-0001...parent_id <end>"
+    pathPart: cpu-stats
+- ___resource___: apigateway-method-0001
+  ___sdk_func_name___: put_method
+  ___save_fields___:
+  - httpMethod
+  ___sdk_func_param___:
+    restApiId: "<start> apigateway-restapi-0001...id <end>"
+    resourceId: "<start> apigateway-resource-0001...id <end>"
+    httpMethod: get
+    authorizationType: ''
+    authorizerId: ''
+    apiKeyRequired: false
+    operationName: disk
+    requestParameters: {}
+    requestModels: {}
+    requestValidatorId: ''
+- ___resource___: apigateway-integration-0001
+  ___sdk_func_name___: put_integration
+  ___save_fields___:
+  - cacheNamespace
+  - uri
+  ___sdk_func_param___:
+    restApiId: "<start> apigateway-restapi-0001...id <end>"
+    resourceId: "<start> apigateway-resource-0001...id <end>"
+    httpMethod: "<start> apigateway-method-0001...httpMethod <end>"
+    type: AWS_PROXY
+    integrationHttpMethod: POST
+    uri: arn:aws:apigateway:<start>GENERAL...account_region<end>:lambda:path/2015-03-31/functions/arn:aws:lambda:<start>GENERAL...account_region<end>:<start>GENERAL...account_number<end>:function:<start>GENERAL...lambda_function_name<end>/invocations
+    connectionType: INTERNET
+    credentials: ''
+    requestParameters: {}
+    requestTemplates: {}
+    passthroughBehavior: WHEN_NO_MATCH
+    cacheNamespace: "<start> apigateway-resource-0001...id <end>"
+    cacheKeyParameters: []
+    contentHandling: CONVERT_TO_TEXT
+    timeoutInMillis: 29000
+    tlsConfig: {}
+- ___resource___: apigateway-method-0002
+  ___sdk_func_name___: put_method
+  ___save_fields___:
+  - httpMethod
+  ___sdk_func_param___:
+    restApiId: "<start> apigateway-restapi-0001...id <end>"
+    resourceId: "<start> apigateway-resource-0002...id <end>"
+    httpMethod: get
+    authorizationType: ''
+    authorizerId: ''
+    apiKeyRequired: false
+    operationName: disk
+    requestParameters: {}
+    requestModels: {}
+    requestValidatorId: ''
+- ___resource___: apigateway-integration-0002
+  ___sdk_func_name___: put_integration
+  ___save_fields___:
+  - cacheNamespace
+  - uri
+  ___sdk_func_param___:
+    restApiId: "<start> apigateway-restapi-0001...id <end>"
+    resourceId: "<start> apigateway-resource-0002...id <end>"
+    httpMethod: "<start> apigateway-method-0002...httpMethod <end>"
+    type: AWS_PROXY
+    integrationHttpMethod: POST
+    uri: arn:aws:apigateway:<start>GENERAL...account_region<end>:lambda:path/2015-03-31/functions/arn:aws:lambda:<start>GENERAL...account_region<end>:<start>GENERAL...account_number<end>:function:<start>GENERAL...lambda_function_name<end>/invocations
+    connectionType: INTERNET
+    credentials: ''
+    requestParameters: {}
+    requestTemplates: {}
+    passthroughBehavior: WHEN_NO_MATCH
+    cacheNamespace: "<start> apigateway-resource-0002...id <end>"
+    cacheKeyParameters: []
+    contentHandling: CONVERT_TO_TEXT
+    timeoutInMillis: 29000
+    tlsConfig: {}
+- ___resource___: apigateway-method-0003
+  ___sdk_func_name___: put_method
+  ___save_fields___:
+  - httpMethod
+  ___sdk_func_param___:
+    restApiId: "<start> apigateway-restapi-0001...id <end>"
+    resourceId: "<start> apigateway-resource-0003...id <end>"
+    httpMethod: get
+    authorizationType: ''
+    authorizerId: ''
+    apiKeyRequired: false
+    operationName: disk
+    requestParameters: {}
+    requestModels: {}
+    requestValidatorId: ''
+- ___resource___: apigateway-integration-0003
+  ___sdk_func_name___: put_integration
+  ___save_fields___:
+  - cacheNamespace
+  - uri
+  ___sdk_func_param___:
+    restApiId: "<start> apigateway-restapi-0001...id <end>"
+    resourceId: "<start> apigateway-resource-0003...id <end>"
+    httpMethod: "<start> apigateway-method-0003...httpMethod <end>"
+    type: AWS_PROXY
+    integrationHttpMethod: POST
+    uri: arn:aws:apigateway:<start>GENERAL...account_region<end>:lambda:path/2015-03-31/functions/arn:aws:lambda:<start>GENERAL...account_region<end>:<start>GENERAL...account_number<end>:function:<start>GENERAL...lambda_function_name<end>/invocations
+    connectionType: INTERNET
+    credentials: ''
+    requestParameters: {}
+    requestTemplates: {}
+    passthroughBehavior: WHEN_NO_MATCH
+    cacheNamespace: "<start> apigateway-resource-0003...id <end>"
+    cacheKeyParameters: []
+    contentHandling: CONVERT_TO_TEXT
+    timeoutInMillis: 29000
+    tlsConfig: {}

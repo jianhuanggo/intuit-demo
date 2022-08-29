@@ -1,0 +1,75 @@
+---
+- ___resource___: lambda-policy-0001
+  ___sdk_func_name___: create_policy
+  ___save_fields___:
+  - PolicyId
+  - Arn
+  - PolicyName
+  ___sdk_func_param___:
+    PolicyName: AWSLambdaBasicExecutionPolicy-basic-<func_start>$$unique_string<func_end>
+    Path: "/"
+    PolicyDocument: "<func_start>$$json_loads:///Users/jianhuang/opt/anaconda3/envs/intuit_demo2/intuit_demo/Document/IAM/Policy/lambda_basic_policy.json<func_end>"
+    Description: contains basic privileges used by lambda
+    Tags:
+    - Key: environment
+      Value: demo
+  ___destroy_resource___:
+  - ___sdk_func_name___: delete_policy
+    ___sdk_func_param___:
+      PolicyArn: "<start> lambda-policy-0001...Arn <end>"
+- ___resource___: lambda-policy-0002
+  ___sdk_func_name___: create_policy
+  ___save_fields___:
+  - PolicyId
+  - Arn
+  - PolicyName
+  ___sdk_func_param___:
+    PolicyName: AWSLambdaBasicExecutionPolicy-dynamodb-<func_start>$$unique_string<func_end>
+    Path: "/"
+    PolicyDocument: "<func_start>$$json_loads:///Users/jianhuang/opt/anaconda3/envs/intuit_demo2/intuit_demo/Document/IAM/Policy/lambda_dynamodb_policy.json<func_end>"
+    Description: contains basic privileges used by lambda
+    Tags:
+    - Key: environment
+      Value: demo
+  ___destroy_resource___:
+  - ___sdk_func_name___: delete_policy
+    ___sdk_func_param___:
+      PolicyArn: "<start> lambda-policy-0002...Arn <end>"
+- ___resource___: lambda-role-0001
+  ___sdk_func_name___: create_role
+  ___save_fields___:
+  - RoleName
+  - RoleId
+  - Arn
+  ___sdk_func_param___:
+    RoleName: AWSLambdaBasicExecutionRole-<func_start>$$unique_string<func_end>
+    Path: "/"
+    AssumeRolePolicyDocument: "<func_start>$$json_loads:///Users/jianhuang/opt/anaconda3/envs/intuit_demo2/intuit_demo/Document/IAM/Role/assumerolepolicydocument.json<func_end>"
+    Description: contains basic privileges used by lambda
+    MaxSessionDuration: 3600
+    Tags:
+    - Key: environment
+      Value: demo
+  ___destroy_resource___:
+  - ___sdk_func_name___: delete_role
+    ___sdk_func_param___:
+      RoleName: "<start> lambda-role-0001...RoleName <end>"
+- ___resource___: lambda-role-0002
+  ___sdk_func_name___: create_role
+  ___save_fields___:
+  - RoleName
+  - RoleId
+  - Arn
+  ___sdk_func_param___:
+    RoleName: AWSLambdaCloudWatchLogRole-<func_start>$$unique_string<func_end>
+    Path: "/"
+    AssumeRolePolicyDocument: "<func_start>$$json_loads:///Users/jianhuang/opt/anaconda3/envs/intuit_demo2/intuit_demo/Document/IAM/Role/apigatewayassumerolepolicydocument.json<func_end>"
+    Description: contains necessary privileges to access cloudwatchlog
+    MaxSessionDuration: 3600
+    Tags:
+    - Key: environment
+      Value: demo
+  ___destroy_resource___:
+  - ___sdk_func_name___: delete_role
+    ___sdk_func_param___:
+      RoleName: "<start> lambda-role-0002...RoleName <end>"

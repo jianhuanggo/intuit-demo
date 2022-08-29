@@ -1,0 +1,5 @@
+---
+- ___resource___: dynamodb0001
+  ___sdk_func_name___: notdummy
+  ___sdk_func_param___:
+    insert_record: "<func_start>$$dynamodb_put_item_disk<func_end>"

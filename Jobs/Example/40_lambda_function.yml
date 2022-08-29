@@ -1,0 +1,36 @@
+---
+- ___resource___: lambda-function-0001
+  ___sdk_func_name___: create_function
+  ___save_fields___:
+  - FunctionArn
+  - FunctionName
+  ___sdk_func_param___:
+    FunctionName: "<start> GENERAL...lambda_function_name <end>"
+    Runtime: python3.9
+    Role: "<start> lambda-role-0001...Arn <end>"
+    Handler: lambda_function.lambda_handler
+    Code:
+      ZipFile: "<func_start>$$fileb:///Users/jianhuang/Personal/aws/lambda_function/demo-d538ad0f-1819-4907-9858-3384c8f5c4f6.zip<func_end>"
+    Description: lambda function for retrieve data from dynamodb
+    Timeout: 3
+    MemorySize: 128
+    Publish: true
+    VpcConfig: {}
+    PackageType: Zip
+    DeadLetterConfig: {}
+    Environment: {}
+    KMSKeyArn: ''
+    TracingConfig:
+      Mode: PassThrough
+    Tags:
+      environment: demo
+    Layers: []
+    FileSystemConfigs: []
+    Architectures:
+    - x86_64
+    EphemeralStorage:
+      Size: 512
+  ___destroy_resource___:
+  - ___sdk_func_name___: delete_function
+    ___sdk_func_param___:
+      FunctionName: "<start> lambda-function-0001...FunctionName <end>"

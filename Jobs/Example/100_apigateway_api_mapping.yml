@@ -1,0 +1,21 @@
+---
+- ___resource___: api-gateway-api-mapping-0001
+  ___sdk_func_name___: create_api_mapping
+  ___save_fields___:
+  - cacheNamespace
+  - uri
+  ___sdk_func_param___:
+    ApiId: "<start> apigateway-restapi-0001...id <end>"
+    DomainName: "<start> GENERAL...domain_name <end>"
+    Stage: demo
+  ___post_process___:
+  - ___sdk_func_name___: get_api_mappings
+    ___save_fields___:
+    - ApiMappingId
+    ___sdk_func_param___:
+      DomainName: "<start> GENERAL...domain_name <end>"
+  ___destroy_resource___:
+  - ___sdk_func_name___: delete_api_mapping
+    ___sdk_func_param___:
+      ApiMappingId: "<start> api-gateway-api-mapping-0001...ApiMappingId <end>"
+      DomainName: "<start> GENERAL...domain_name <end>"

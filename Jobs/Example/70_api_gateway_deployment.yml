@@ -1,0 +1,12 @@
+---
+- ___resource___: api-gateway-deployment-0001
+  ___sdk_func_name___: create_deployment
+  ___sdk_func_param___:
+    restApiId: "<start> apigateway-restapi-0001...id <end>"
+    stageName: demo
+    stageDescription: demo
+    description: demo
+    cacheClusterEnabled: false
+    cacheClusterSize: '0.5'
+    variables: {}
+    tracingEnabled: true

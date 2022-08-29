@@ -1,0 +1,44 @@
+---
+- ___resource___: lambda-policy-attach-role-0001
+  ___sdk_func_name___: attach_role_policy
+  ___save_fields___:
+  - RoleName
+  - RoleId
+  - Arn
+  ___sdk_func_param___:
+    RoleName: "<start> lambda-role-0001...RoleName <end>"
+    PolicyArn: "<start> lambda-policy-0001...Arn <end>"
+  ___destroy_resource___:
+  - ___sdk_func_name___: detach_role_policy
+    ___sdk_func_param___:
+      RoleName: "<start> lambda-role-0001...RoleName <end>"
+      PolicyArn: "<start> lambda-policy-0001...Arn <end>"
+- ___resource___: lambda-policy-attach-role-0002
+  ___sdk_func_name___: attach_role_policy
+  ___save_fields___:
+  - RoleName
+  - RoleId
+  - Arn
+  ___sdk_func_param___:
+    RoleName: "<start> lambda-role-0001...RoleName <end>"
+    PolicyArn: "<start> lambda-policy-0002...Arn <end>"
+  ___destroy_resource___:
+  - ___sdk_func_name___: detach_role_policy
+    ___sdk_func_param___:
+      RoleName: "<start> lambda-role-0001...RoleName <end>"
+      PolicyArn: "<start> lambda-policy-0002...Arn <end>"
+- ___resource___: lambda-policy-attach-role-0003
+  ___sdk_func_name___: attach_role_policy
+  ___save_fields___:
+  - RoleName
+  - RoleId
+  - Arn
+  ___sdk_func_param___:
+    RoleName: "<start> lambda-role-0002...RoleName <end>"
+    PolicyArn: arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs
+  ___destroy_resource___:
+  - ___sdk_func_name___: detach_role_policy
+    ___sdk_func_param___:
+      RoleName: "<start> lambda-role-0002...RoleName <end>"
+      PolicyArn: arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs
+

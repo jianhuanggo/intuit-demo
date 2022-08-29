@@ -1,0 +1,73 @@
+---
+- ___resource___: dynamodb-table-disk
+  ___sdk_func_name___: create_table
+  ___save_fields___:
+  - TableArn
+  - TableId
+  - TableName
+  ___sdk_func_param___:
+    AttributeDefinitions:
+    - AttributeName: id
+      AttributeType: N
+    TableName: st_disk
+    KeySchema:
+    - AttributeName: id
+      KeyType: HASH
+    BillingMode: PAY_PER_REQUEST
+    SSESpecification:
+      Enabled: true
+    Tags:
+    - Key: environment
+      Value: demo
+  ___destroy_resource___:
+  - ___sdk_func_name___: delete_table
+    ___sdk_func_param___:
+      TableName: "<start> dynamodb-table-disk...TableName <end>"
+- ___resource___: dynamodb-table-memory
+  ___sdk_func_name___: create_table
+  ___save_fields___:
+  - TableArn
+  - TableId
+  - TableName
+  ___sdk_func_param___:
+    AttributeDefinitions:
+    - AttributeName: id
+      AttributeType: N
+    TableName: st_memory
+    KeySchema:
+    - AttributeName: id
+      KeyType: HASH
+    BillingMode: PAY_PER_REQUEST
+    SSESpecification:
+      Enabled: true
+    Tags:
+    - Key: environment
+      Value: demo
+  ___destroy_resource___:
+  - ___sdk_func_name___: delete_table
+    ___sdk_func_param___:
+      TableName: "<start> dynamodb-table-memory...TableName <end>"
+- ___resource___: dynamodb-table-cpu-stats
+  ___sdk_func_name___: create_table
+  ___save_fields___:
+  - TableArn
+  - TableId
+  - TableName
+  ___sdk_func_param___:
+    AttributeDefinitions:
+    - AttributeName: id
+      AttributeType: N
+    TableName: st_cpu_stats
+    KeySchema:
+    - AttributeName: id
+      KeyType: HASH
+    BillingMode: PAY_PER_REQUEST
+    SSESpecification:
+      Enabled: true
+    Tags:
+    - Key: environment
+      Value: demo
+  ___destroy_resource___:
+  - ___sdk_func_name___: delete_table
+    ___sdk_func_param___:
+      TableName: "<start> dynamodb-table-cpu-stats...TableName <end>"

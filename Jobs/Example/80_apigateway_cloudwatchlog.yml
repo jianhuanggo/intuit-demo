@@ -1,0 +1,27 @@
+---
+- ___resource___: api-gateway-update-account-0001
+  ___sdk_func_name___: update_account
+  ___sdk_func_param___:
+    patchOperations:
+    - op: replace
+      path: "/cloudwatchRoleArn"
+      value: "<start> lambda-role-0002...Arn <end>"
+      from: ''
+- ___resource___: api-gateway-update-stage-0001
+  ___sdk_func_name___: update_stage
+  ___sdk_func_param___:
+    restApiId: "<start> apigateway-restapi-0001...id <end>"
+    stageName: demo
+    patchOperations:
+    - op: replace
+      path: "/*/*/logging/loglevel"
+      value: ERROR
+      from: 'OFF'
+    - op: replace
+      path: "/*/*/logging/dataTrace"
+      value: 'true'
+      from: 'false'
+    - op: replace
+      path: "/tracingEnabled"
+      value: 'true'
+      from: 'false'
